@@ -210,11 +210,11 @@ export default function Index() {
             <button onClick={() => setPage("home")} style={{ display: "flex", alignItems: "center", gap: 12, background: "none", border: "none", cursor: "pointer" }}>
               <span style={{ fontSize: 34 }}>🐑</span>
               <div>
-                <div style={{ fontFamily: "'Caveat', cursive", fontSize: 23, fontWeight: 700, color: C.gold, lineHeight: 1 }}>
-                  Год Овцы
+                <div style={{ fontFamily: "'Caveat', cursive", fontSize: 20, fontWeight: 700, color: "#e8401a", lineHeight: 1.1 }}>
+                  Красная огненная Коза
                 </div>
                 <div style={{ fontSize: 11, color: C.tan, marginTop: 2, letterSpacing: "0.05em" }}>
-                  Детские сладкие подарки
+                  символ 2027 года · детские подарки
                 </div>
               </div>
             </button>
