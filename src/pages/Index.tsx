@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon";
 
 /* ─── Images ─────────────────────────────────────────────────────── */
 const IMG = {
-  hero:       "https://cdn.poehali.dev/projects/e6309206-2dbb-4076-919d-e77eaf57bc28/files/13d6f67d-742f-4a22-a8aa-cf5f23df700e.jpg",
+  hero:       "https://cdn.poehali.dev/projects/e6309206-2dbb-4076-919d-e77eaf57bc28/bucket/0ab123a2-4004-4b54-83fb-f59aaf56be48.png",
   gift:       "https://cdn.poehali.dev/projects/e6309206-2dbb-4076-919d-e77eaf57bc28/files/f8633c2b-ae65-4ef4-b82e-38f6c7c347b7.jpg",
   assortment: "https://cdn.poehali.dev/projects/e6309206-2dbb-4076-919d-e77eaf57bc28/files/c985cc89-33ed-4721-ad0d-88540a40822f.jpg",
 };
@@ -345,8 +345,22 @@ function HomePage({ setPage, addToCart, added }: { setPage: (p: Page) => void; a
             </div>
           </div>
 
-          <div className="animate-sway" style={{ flexShrink: 0, width: "clamp(180px, 28vw, 270px)" }}>
-            <img src={IMG.hero} alt="Подарок" style={{ width: "100%", borderRadius: 20, boxShadow: "0 24px 60px rgba(0,0,0,.5)", border: `4px solid ${C.gold}` }} />
+          <div className="animate-sway" style={{ flexShrink: 0, width: "clamp(200px, 30vw, 320px)", position: "relative" }}>
+            {/* glow behind the box */}
+            <div style={{
+              position: "absolute", inset: "10%",
+              background: `radial-gradient(circle, ${C.gold}55 0%, transparent 70%)`,
+              filter: "blur(28px)", zIndex: 0,
+            }} />
+            <img
+              src={IMG.hero}
+              alt="Новогодний подарок с бараном"
+              style={{
+                position: "relative", zIndex: 1,
+                width: "100%",
+                filter: "drop-shadow(0 20px 36px rgba(0,0,0,.55))",
+              }}
+            />
           </div>
         </div>
       </section>
