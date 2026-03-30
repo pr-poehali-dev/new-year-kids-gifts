@@ -4,42 +4,26 @@
 
 @layer base {
   :root {
-    --background: 30 25% 97%;
-    --foreground: 20 30% 12%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 20 30% 12%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 30% 12%;
-
-    --primary: 152 45% 22%;
-    --primary-foreground: 45 80% 95%;
-
-    --secondary: 45 85% 55%;
-    --secondary-foreground: 20 30% 12%;
-
-    --muted: 30 20% 92%;
-    --muted-foreground: 20 15% 45%;
-
-    --accent: 0 72% 45%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 30 20% 85%;
-    --input: 30 20% 85%;
-    --ring: 152 45% 22%;
-
-    --radius: 1rem;
-
-    --xmas-green: #1a4a2e;
-    --xmas-gold: #d4a017;
-    --xmas-red: #b5271a;
-    --xmas-cream: #fdf6e3;
-    --xmas-snow: #f0ebe0;
-
+    --background: 35 28% 94%;
+    --foreground: 25 40% 12%;
+    --card: 38 30% 97%;
+    --card-foreground: 25 40% 12%;
+    --popover: 38 30% 97%;
+    --popover-foreground: 25 40% 12%;
+    --primary: 25 55% 28%;
+    --primary-foreground: 40 60% 92%;
+    --secondary: 42 80% 52%;
+    --secondary-foreground: 25 40% 12%;
+    --muted: 35 20% 88%;
+    --muted-foreground: 25 15% 48%;
+    --accent: 18 65% 38%;
+    --accent-foreground: 40 60% 92%;
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 35 22% 82%;
+    --input: 35 22% 82%;
+    --ring: 25 55% 28%;
+    --radius: 0.75rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -48,6 +32,15 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --ethno-dark: #2c1a0e;
+    --ethno-brown: #6b3a1f;
+    --ethno-wood: #9b6a3a;
+    --ethno-tan: #c4935a;
+    --ethno-cream: #f5ead8;
+    --ethno-gold: #d4a017;
+    --ethno-red: #8b2318;
+    --ethno-sand: #e8d5b0;
   }
 }
 
@@ -58,16 +51,21 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Golos Text", sans-serif;
+    background-color: var(--ethno-cream);
   }
 }
 
 @keyframes snow-fall {
   0% {
-    transform: translateY(-20px) rotate(0deg);
-    opacity: 1;
+    transform: translateY(-30px) translateX(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(50vh) translateX(12px) rotate(180deg);
+    opacity: 0.7;
   }
   100% {
-    transform: translateY(100vh) rotate(360deg);
+    transform: translateY(105vh) translateX(-8px) rotate(360deg);
     opacity: 0;
   }
 }
@@ -79,25 +77,25 @@
     transform: scale(1);
   }
   50% {
-    opacity: 0.4;
-    transform: scale(0.8);
+    opacity: 0.3;
+    transform: scale(0.75);
   }
 }
 
 @keyframes sway {
   0%,
   100% {
-    transform: rotate(-3deg);
+    transform: rotate(-4deg);
   }
   50% {
-    transform: rotate(3deg);
+    transform: rotate(4deg);
   }
 }
 
-@keyframes fade-in {
+@keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -105,112 +103,69 @@
   }
 }
 
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.animate-fade-up {
+  animation: fade-up 0.55s ease-out both;
 }
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
-}
-
-.animate-twinkle {
-  animation: twinkle 2s ease-in-out infinite;
-}
-
 .animate-sway {
-  animation: sway 3s ease-in-out infinite;
-}
-
-.snowflake {
-  position: fixed;
-  pointer-events: none;
-  animation: snow-fall linear infinite;
-  z-index: 0;
-  color: white;
-}
-
-.garland-bulb {
-  display: inline-block;
-  width: 12px;
-  height: 16px;
-  border-radius: 50% 50% 45% 45%;
-  animation: twinkle 1.5s ease-in-out infinite;
+  animation: sway 4s ease-in-out infinite;
 }
 
 .product-card {
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
 }
-
 .product-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 18px 42px rgba(44, 26, 14, 0.16);
 }
 
-.nav-link {
-  position: relative;
-  transition: color 0.2s;
+.ethno-stripe {
+  height: 10px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--ethno-gold) 0px,
+    var(--ethno-gold) 10px,
+    var(--ethno-red) 10px,
+    var(--ethno-red) 20px,
+    var(--ethno-brown) 20px,
+    var(--ethno-brown) 30px,
+    var(--ethno-gold) 30px,
+    var(--ethno-gold) 40px
+  );
+  opacity: 0.8;
 }
 
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--xmas-gold);
-  transition: width 0.3s ease;
+.header-wood {
+  background-color: var(--ethno-dark);
+  background-image:
+    repeating-linear-gradient(
+      91deg,
+      rgba(155, 106, 58, 0.09) 0,
+      rgba(155, 106, 58, 0.09) 1px,
+      transparent 1px,
+      transparent 55px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(155, 106, 58, 0.06) 0,
+      rgba(155, 106, 58, 0.06) 1px,
+      transparent 1px,
+      transparent 38px
+    );
 }
 
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.btn-primary {
-  background: var(--xmas-green);
-  color: var(--xmas-cream);
-  transition: all 0.2s ease;
-}
-
-.btn-primary:hover {
-  background: #0f2e1c;
-  transform: translateY(-1px);
-}
-
-.btn-gold {
-  background: var(--xmas-gold);
-  color: #1a1a1a;
-  transition: all 0.2s ease;
-}
-
-.btn-gold:hover {
-  background: #c49010;
-  transform: translateY(-1px);
-}
-
-.section-title {
-  font-family: "Caveat", cursive;
-}
-
-.pattern-bg {
+.ethno-page-bg {
+  background-color: var(--ethno-cream);
   background-image:
     radial-gradient(
-      circle at 20% 20%,
-      rgba(26, 74, 46, 0.05) 0%,
-      transparent 50%
+      circle at 8% 18%,
+      rgba(107, 58, 31, 0.06) 0%,
+      transparent 44%
     ),
     radial-gradient(
-      circle at 80% 80%,
-      rgba(212, 160, 23, 0.05) 0%,
-      transparent 50%
+      circle at 92% 82%,
+      rgba(212, 160, 23, 0.07) 0%,
+      transparent 44%
     );
 }
